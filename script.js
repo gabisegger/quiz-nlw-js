@@ -1,92 +1,113 @@
 const perguntas = [
   {
-    pergunta: "O que significa WCAG?",
+    pergunta: "Qual é a forma correta de declarar uma variável em JavaScript?",
     resposta: [
-      "World Consortium of Accessibility Guidelines",
-      "Web Content Accessibility Guidelines",
-      "Website Care Accessibility Group",
+      "var myVar;",
+      "variable myVar;",
+      "myVar = var;",
+    ],
+    correta: 0
+  },
+  {
+    pergunta: "O que é um operador ternário em JavaScript?",
+    resposta: [
+      "Um operador que trabalha com três variáveis",
+      "Um operador que retorna um valor baseado em uma condição",
+      "Um operador que só pode ser utilizado em operações matemáticas",
     ],
     correta: 1
   },
   {
-    pergunta: "Qual é a principal função do alt atributo em uma tag de imagem?",
+    pergunta: "Qual é a função do método 'querySelector'?",
     resposta: [
-      "Definir a posição da imagem na página",
-      "Descrever o conteúdo da imagem para pessoas que utilizam leitores de tela",
-      "Alterar a cor da imagem",
+      "Selecionar um elemento HTML pelo seu nome de classe",
+      "Selecionar um elemento HTML pelo seu ID",
+      "Selecionar um elemento HTML pelo seletor CSS",
+    ],
+    correta: 2
+  },
+  {
+    pergunta: "Qual é a finalidade do método 'toFixed' em JavaScript?",
+    resposta: [
+      "Arredondar um número para o inteiro mais próximo",
+      "Limitar o número de casas decimais de um número de ponto flutuante",
+      "Converter um número para uma string",
     ],
     correta: 1
   },
   {
-    pergunta: "Qual das seguintes opções é uma boa prática para garantir a acessibilidade de um site para pessoas com deficiência visual?",
+    pergunta: "Qual é a finalidade do método 'push' em um array em JavaScript?",
     resposta: [
-      "Usar apenas texto em vez de imagens",
-      "Utilizar cores vibrantes e contrastantes para atrair a atenção",
-      "Incluir descrições textuais em imagens usando o atributo alt",
+      "Remover o último elemento do array",
+      "Adicionar um novo elemento ao início do array",
+      "Adicionar um novo elemento ao final do array",
     ],
     correta: 2
   },
   {
-    pergunta: "Por que é importante manter uma estrutura HTML semanticamente correta para a acessibilidade web?",
+    pergunta: "O que é uma função de callback em JavaScript?",
     resposta: [
-      "Porque uma estrutura HTML complexa torna o site mais interessante visualmente",
-      "Porque uma estrutura semanticamente correta ajuda os leitores de tela a entender a organização e o significado do conteúdo",
-      "Porque uma estrutura HTML não tem impacto na acessibilidade",
+      "Uma função que é chamada automaticamente quando é declarada",
+      "Uma função que é passada como argumento para outra função e é executada posteriormente",
+      "Uma função que não pode ser chamada em JavaScript",
     ],
     correta: 1
   },
   {
-    pergunta: "Qual é a prática recomendada para garantir que formulários sejam acessíveis?",
+    pergunta: "Qual é a diferença entre 'let' e 'var' em JavaScript?",
     resposta: [
-      "Usar apenas campos de texto",
-      "Utilizar apenas menus suspensos para seleção de opções",
-      "Incluir rótulos descritivos para cada campo de formulário",
+      "'let' tem escopo de bloco, enquanto 'var' tem escopo de função",
+      "'var' tem escopo de bloco, enquanto 'let' tem escopo de função",
+      "'let' e 'var' são equivalentes e podem ser usados de forma intercambiável",
     ],
-    correta: 2
+    correta: 0
   },
   {
-    pergunta: "Como as pessoas com deficiência visual geralmente navegam em uma página da web?",
+    pergunta: "Qual é o propósito do método 'addEventListener' em JavaScript?",
     resposta: [
-      "Clicando em links aleatoriamente",
-      "Usando um cursor de mouse",
-      "Utilizando leitores de tela",
+      "Remover um evento de um elemento HTML",
+      "Adicionar um evento a um elemento HTML",
+      "Alterar o conteúdo de um elemento HTML",
     ],
-    correta: 3
+    correta: 1
   },
   {
-    pergunta: "O que é contraste de cores e por que é importante para a acessibilidade web?",
+    pergunta: "O que é uma função anônima em JavaScript?",
     resposta: [
-      "É a quantidade de cores diferentes usadas em uma página, o que torna o site mais atraente",
-      "É a diferença entre a luminosidade das cores de primeiro e segundo plano, importante para tornar o texto legível para pessoas com baixa visão",
-      "Não tem impacto na acessibilidade",
+      "Uma função sem nome atribuído",
+      "Uma função que é executada apenas uma vez",
+      "Uma função que não pode ser chamada diretamente",
     ],
-    correta: 2
+    correta: 0
   },
   {
-    pergunta: "Qual das seguintes opções não é uma diretriz de acessibilidade para vídeos?",
+    pergunta: "Qual é a maneira correta de escrever um comentário de linha única em JavaScript?",
     resposta: [
-      "Incluir legendas e transcrições para conteúdo de áudio",
-      "Garantir que os vídeos tenham uma resolução mínima de 4K",
-      "Fornecer controles de reprodução de mídia acessíveis",
+      "// Este é um comentário de linha única",
+      "<!-- Este é um comentário de linha única -->",
+      "/* Este é um comentário de linha única */",
     ],
-    correta: 2
-  },
-  {
-    pergunta: "Por que é importante testar a acessibilidade de um site em diferentes navegadores e dispositivos?",
-    resposta: [
-      "Porque todos os navegadores e dispositivos renderizam páginas da web exatamente da mesma maneira",
-      "Porque diferentes navegadores e dispositivos podem interpretar o código de maneira diferente, afetando a acessibilidade",
-      "Porque a acessibilidade não é afetada por diferentes navegadores ou dispositivos",
-    ],
-    correta: 2
-  },
-  {
-    pergunta: "O que é uma característica importante de um site acessível para pessoas com deficiência motora?",
-    resposta: [
-      "Muitos elementos interativos que requerem movimentos precisos do mouse",
-      "Teclado navegável e navegação por voz",
-      "Navegação exclusivamente por gestos de toque",
-    ],
-    correta: 2
+    correta: 0
   },
 ];
+
+const quiz = document.querySelector('#quiz')
+const template = document.querySelector('template');
+
+//loop
+for(const item of perguntas) {
+  const quizItem = template.content.cloneNode(true);
+  quizItem.querySelector('h3').textContent = item.pergunta
+  
+  for(let resposta of item.resposta){
+    const dt = quizItem.querySelector('dl dt').cloneNode(true)
+    dt.querySelector('span').textContent = resposta
+    
+    quizItem.querySelector('dl').appendChild(dt)
+  }
+  
+  quizItem.querySelector('dl dt').remove()
+  
+  //coloca a pergunta na tela
+  quiz.appendChild(quizItem)
+}
